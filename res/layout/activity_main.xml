@@ -9,9 +9,16 @@
     tools:context="com.snapper.emvcardreader.MainActivity" >
 
     <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/card_pan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/card_pan" />
 
         <TextView
             android:id="@+id/card_issuer"

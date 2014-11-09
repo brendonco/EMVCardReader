@@ -98,15 +98,17 @@ public class MainActivity extends ActionBarActivity {
 		            		reader.read();
 		                  
 		        			//reader.
-		        			TextView issuer = (TextView)findViewById(R.id.card_issuer);
+		            		TextView cardPan = (TextView)findViewById(R.id.card_pan);
+		            		cardPan.setText(getString(R.string.card_pan) + ":" + (reader.pan == null ? "" : reader.pan));
 		        			
-		        			issuer.setText(getString(R.string.card_issuer) + ":" + reader.issuer);
+		        			TextView issuer = (TextView)findViewById(R.id.card_issuer);
+		        			issuer.setText(getString(R.string.card_issuer) + ":" + (reader.issuer == null ? "" : reader.issuer));
 		        			
 		        			TextView cardExpiryMonth = (TextView)findViewById(R.id.card_expiry_month);
-		        			cardExpiryMonth.setText(getString(R.string.expiry_month) + ":" + reader.expiryMonth);
+		        			cardExpiryMonth.setText(getString(R.string.expiry_month) + ":" + (reader.expiryMonth == null ? -1 :  reader.expiryMonth));
 		        			
 		        			TextView cardExpiryYr = (TextView)findViewById(R.id.card_expiry_yr);
-		        			cardExpiryYr.setText(getString(R.string.expiry_yr) + ":" + reader.expiryYear);
+		        			cardExpiryYr.setText(getString(R.string.expiry_yr) + ":" + (reader.expiryYear == null ? -1 : reader.expiryYear));
             			}catch(Exception err){
             				Log.e("Error", err.toString());
             			}
