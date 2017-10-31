@@ -14,14 +14,15 @@ new CardInfo(){
             	@Override
                 protected void onPostExecute(CardInfo card){
             		if(card != null){
-            			try{
+            			try {
+                            // EMV card reader library
 		            		EMVReader reader = new EMVReader(card, null, card.getADF());
 		            		reader.doTrace = true;
 		            		reader.read();
 		            		
 		            		System.out.println("Issuer "+reader.issuer);
 		            		System.out.println("Result "+reader.pan+",Y="+reader.expiryYear+",M="+reader.expiryMonth);
-            			}catch(Exception err){
+            			} catch(Exception err){
             				Log.e("Error", err.toString());
             			}
             		}
